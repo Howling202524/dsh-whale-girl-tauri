@@ -1,0 +1,82 @@
+{
+  "name": "dsh-whale-girl-tauri",
+  "description": "Whale Girl Tauri 2 desktop pet bundle for DeepSeek Harness",
+  "version": "0.1.2",
+  "type": "module",
+  "main": "lib/plugin.js",
+  "types": "lib/types/plugin.d.ts",
+  "exports": {
+    ".": {
+      "types": "./lib/types/plugin.d.ts",
+      "default": "./lib/plugin.js"
+    },
+    "./cordis.patch.yml": "./cordis.patch.yml",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "bin/win32-x64/*.exe",
+    "lib/**/*.js",
+    "lib/types/**/*.d.ts",
+    "resources/whale-girl/pet.json",
+    "resources/whale-girl/README.md",
+    "resources/whale-girl/validation.json",
+    "qa/atlas-validation.json",
+    "cordis.patch.yml",
+    "README.md",
+    "README_EN.md",
+    "LICENSE"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  },
+  "scripts": {
+    "build": "npm run clean && npm run build:js && npm run build:types && npm run build:tauri && npm run stage:sidecar",
+    "build:js": "npm run build:plugin && npm run build:frontend",
+    "build:plugin": "esbuild src/plugin.ts --bundle --platform=node --format=esm --external:@deepseek-ai/cordis --external:@deepseek-ai/schemastery --external:@deepseek-ai/dsh-agent --external:@deepseek-ai/dsh-session --outfile=lib/plugin.js && esbuild src/sidecar/logic.ts --bundle --platform=node --format=esm --outfile=lib/sidecar/logic.js && esbuild src/activity.ts --bundle --platform=node --format=esm --outfile=lib/activity.js",
+    "build:frontend": "esbuild src/sidecar/renderer.ts --bundle --platform=browser --format=iife --outfile=dist-tauri/renderer.js && node scripts/stage-tauri.mjs",
+    "build:types": "tsc -p tsconfig.build.json",
+    "build:tauri": "tauri build --target x86_64-pc-windows-msvc --no-bundle",
+    "stage:sidecar": "node scripts/stage-sidecar.mjs",
+    "clean": "node scripts/clean.mjs",
+    "clean:cache": "node scripts/clean-cache.mjs",
+    "prepare": "npm run build",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "lint": "oxlint -c .oxlintrc.json src scripts",
+    "test": "npm run build && node --test scripts/*.test.mjs && cargo test --manifest-path src-tauri/Cargo.toml --target x86_64-pc-windows-msvc",
+    "audit:pet": "npm run build && node scripts/pet-audit.mjs",
+    "check": "npm run typecheck && npm run lint && npm test"
+  },
+  "keywords": ["deepseek", "dsh", "desktop-pet", "cordis", "tauri", "webview2"],
+  "author": "Howling202524",
+  "license": "MIT",
+  "homepage": "https://github.com/Howling202524/dsh-whale-girl-tauri#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Howling202524/dsh-whale-girl-tauri.git"
+  },
+  "engines": {
+    "node": "^22.19.0 || >=24.0.0"
+  },
+  "packageManager": "pnpm@11.16.0",
+  "os": ["win32"],
+  "cpu": ["x64"],
+  "dependencies": {
+    "@deepseek-ai/schemastery": "^3.18.0"
+  },
+  "peerDependencies": {
+    "@deepseek-ai/cordis": ">=4.0.0 <5.0.0"
+  },
+  "devDependencies": {
+    "@deepseek-ai/cordis": "^4.0.1",
+    "@deepseek-ai/dsh-agent": "0.1.0-rc.6",
+    "@deepseek-ai/dsh-session": "0.1.0-rc.6",
+    "@tauri-apps/api": "^2.0.0",
+    "@tauri-apps/cli": "^2.0.0",
+    "@types/node": "^22.0.0",
+    "esbuild": "^0.25.0",
+    "oxlint": "^1.0.0",
+    "typescript": "^6.0.3"
+  }
+}

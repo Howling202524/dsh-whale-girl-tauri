@@ -1,0 +1,26 @@
+{
+  "id": "whale-girl",
+  "displayName": "Whale Girl",
+  "description": "A lively blue-haired desktop companion for DeepSeek Harness.",
+  "spriteVersionNumber": 2,
+  "cell": { "width": 192, "height": 208, "columns": 8, "rows": 11 },
+  "animations": {
+    "idle": { "source": { "kind": "atlas", "path": "spritesheet.webp", "row": 0 }, "frames": [0, 1, 2, 3, 4, 5], "durationsMs": [280, 110, 110, 140, 140, 320], "playback": "loop" },
+    "running-right": { "source": { "kind": "atlas", "path": "spritesheet.webp", "row": 1 }, "frames": [0, 1, 2, 3, 4, 5, 6, 7], "durationsMs": [120, 120, 120, 120, 120, 120, 120, 220], "playback": "loop" },
+    "running-left": { "source": { "kind": "atlas", "path": "spritesheet.webp", "row": 2 }, "frames": [0, 1, 2, 3, 4, 5, 6, 7], "durationsMs": [120, 120, 120, 120, 120, 120, 120, 220], "playback": "loop" },
+    "waving": { "source": { "kind": "atlas", "path": "spritesheet.webp", "row": 3 }, "frames": [0, 1, 2, 3], "durationsMs": [140, 140, 140, 280], "playback": "once" },
+    "jumping": { "source": { "kind": "atlas", "path": "spritesheet.webp", "row": 4 }, "frames": [0, 1, 2, 3, 4], "durationsMs": [140, 140, 140, 140, 280], "playback": "once" },
+    "failed": { "source": { "kind": "atlas", "path": "spritesheet.webp", "row": 5 }, "frames": [0, 1, 2, 3, 4, 5, 6, 7], "durationsMs": [140, 140, 140, 140, 140, 140, 140, 240], "playback": "loop" },
+    "waiting": { "source": { "kind": "atlas", "path": "spritesheet.webp", "row": 6 }, "frames": [0, 1, 2, 3, 4, 5], "durationsMs": [150, 150, 150, 150, 150, 260], "playback": "loop" },
+    "running": { "source": { "kind": "atlas", "path": "spritesheet.webp", "row": 7 }, "frames": [0, 1, 2, 3, 4, 5], "durationsMs": [120, 120, 120, 120, 120, 220], "playback": "loop" },
+    "review": { "source": { "kind": "atlas", "path": "spritesheet.webp", "row": 8 }, "frames": [0, 1, 2, 3, 4, 5], "durationsMs": [150, 150, 150, 150, 150, 280], "playback": "loop" },
+    "focus-intro": { "source": { "kind": "atlas", "path": "spritesheet.webp", "row": 7 }, "frames": [0, 1, 2, 3, 4, 5], "durationsMs": [180, 160, 160, 180, 220, 300], "playback": "once" },
+    "cheer": { "source": { "kind": "frames", "paths": ["actions/cheer/00.png", "actions/cheer/01.png", "actions/cheer/02.png", "actions/cheer/03.png", "actions/cheer/04.png", "actions/cheer/05.png"] }, "frames": [0, 1, 2, 3, 4, 5], "durationsMs": [140, 120, 120, 180, 160, 260], "playback": "loop" },
+    "sleepy": { "source": { "kind": "frames", "paths": ["actions/sleepy/00.png", "actions/sleepy/01.png", "actions/sleepy/02.png", "actions/sleepy/03.png", "actions/sleepy/04.png", "actions/sleepy/05.png"] }, "frames": [0, 1, 2, 3, 4, 5], "durationsMs": [300, 220, 260, 320, 900, 300], "playback": "loop" },
+    "shy": { "source": { "kind": "frames", "paths": ["actions/shy/00.png", "actions/shy/01.png", "actions/shy/02.png", "actions/shy/03.png", "actions/shy/04.png", "actions/shy/05.png"] }, "frames": [0, 1, 2, 3, 4, 5], "durationsMs": [150, 180, 180, 260, 240, 300], "playback": "once" },
+    "pat": { "source": { "kind": "frames", "paths": ["actions/pat/00.png", "actions/pat/01.png", "actions/pat/02.png", "actions/pat/03.png", "actions/pat/04.png", "actions/pat/05.png"] }, "frames": [0, 1, 2, 3, 4, 5], "durationsMs": [160, 180, 220, 180, 220, 320], "playback": "once" },
+    "focus": { "source": { "kind": "atlas", "path": "spritesheet.webp", "row": 8 }, "frames": [0, 1, 2, 3, 4, 5], "durationsMs": [180, 160, 160, 180, 160, 280], "playback": "loop" },
+    "curtsy": { "source": { "kind": "frames", "paths": ["actions/curtsy/00.png", "actions/curtsy/01.png", "actions/curtsy/02.png", "actions/curtsy/03.png", "actions/curtsy/04.png", "actions/curtsy/05.png"] }, "frames": [0, 1, 2, 3, 4, 5], "durationsMs": [180, 180, 240, 360, 220, 300], "playback": "loop" }
+  },
+  "gaze": { "rows": [9, 10], "directions": 16, "stepDegrees": 22.5, "zero": "up" }
+}

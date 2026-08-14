@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; script-src 'self'; style-src 'self' 'unsafe-inline'; connect-src 'self' ipc: http://ipc.localhost">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Whale Girl</title>
+  <style>
+    :root { color-scheme: light dark; }
+    * { box-sizing: border-box; }
+    html, body { width: 100%; height: 100%; margin: 0; overflow: hidden; background: transparent; }
+    body { user-select: none; -webkit-user-select: none; }
+    #pet-stage {
+      width: 100%; height: 100%; display: grid; place-items: center; cursor: grab;
+      touch-action: none; -webkit-tap-highlight-color: transparent;
+    }
+    #pet-stage:active { cursor: grabbing; }
+    #pet-sprite {
+      width: 100%; height: 100%; image-rendering: auto; pointer-events: none;
+    }
+    #pet-menu {
+      position: fixed; z-index: 10; width: min(176px, calc(100vw - 16px)); padding: 6px;
+      max-height: calc(100vh - 16px); overflow-y: auto;
+      color: #172033; background: rgba(250, 252, 255, .97);
+      border: 1px solid rgba(28, 43, 70, .14); border-radius: 10px;
+      box-shadow: 0 10px 28px rgba(8, 16, 40, .2); font: 13px/1.2 system-ui, sans-serif;
+    }
+    #pet-menu[hidden] { display: none; }
+    #pet-menu button, #pet-menu label {
+      width: 100%; min-height: 30px; display: flex; align-items: center; gap: 8px;
+      padding: 6px 9px; border: 0; border-radius: 7px; color: inherit;
+      background: transparent; text-align: left; cursor: default;
+    }
+    #pet-menu button:hover, #pet-menu label:hover { background: rgba(67, 108, 184, .1); }
+    #pet-menu hr { margin: 5px 4px; border: 0; border-top: 1px solid rgba(28, 43, 70, .12); }
+    #pet-menu .scale-control {
+      display: grid; grid-template-columns: auto minmax(28px, 1fr) 34px; cursor: default;
+    }
+    #pet-scale { width: 100%; min-width: 0; margin: 0; accent-color: #4676ca; }
+    #pet-scale-value { text-align: right; font-variant-numeric: tabular-nums; }
+  </style>
+</head>
+<body>
+  <main id="pet-stage" aria-label="Whale Girl 桌宠，可拖动，右键打开菜单">
+    <canvas id="pet-sprite" width="192" height="208" role="img" aria-label="Whale Girl"></canvas>
+  </main>
+  <nav id="pet-menu" aria-label="桌宠菜单" hidden>
+    <button type="button" data-action="pat">摸摸她</button>
+    <button type="button" data-action="play">逗她玩</button>
+    <hr>
+    <button type="button" data-action="show-main">打开 Harness</button>
+    <label><input id="always-on-top" type="checkbox">保持置顶</label>
+    <label class="scale-control" for="pet-scale">
+      <span>大小</span>
+      <input id="pet-scale" type="range" aria-label="桌宠大小">
+      <output id="pet-scale-value" for="pet-scale">75%</output>
+    </label>
+    <button id="reset-scale" type="button">恢复默认大小</button>
+    <hr>
+    <button type="button" data-action="hide">隐藏桌宠</button>
+  </nav>
+  <script src="renderer.js"></script>
+</body>
+</html>

@@ -1,0 +1,11 @@
+{
+  "$schema": "https://raw.githubusercontent.com/oxc-project/oxlint/main/npm/oxlint/configuration_schema.json",
+  "plugins": ["typescript"],
+  "rules": {
+    "typescript/no-unused-vars": "error",
+    "typescript/no-non-null-assertion": "error",
+    "typescript/switch-exhaustiveness-check": "error",
+    "no-unused-vars": "error"
+  },
+  "ignorePatterns": ["bin/**", "dist-tauri/**", "lib/**", "node_modules/**", "shots/**", "src-tauri/target/**"]
+}
