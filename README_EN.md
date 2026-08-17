@@ -96,6 +96,10 @@ pnpm audit:pet
 
 The plugin exposes its process channel only on a random `127.0.0.1` port and generates a fresh Bearer token for every launch. The renderer receives only explicitly registered Tauri commands; Rust opens external navigation through the system browser.
 
+## Project origin
+
+This project is independently maintained by Howling202524. It began with the MIT-licensed `dsh-whale-girl` framework and was subsequently rebuilt around Tauri 2 and WebView2, including new desktop hosting, window interaction, preference persistence, resource staging, build, and release implementations. Retained portions remain under the original MIT license; copyright in the Tauri edition's subsequent implementation and modifications belongs to Howling202524.
+
 ## License
 
 [MIT](LICENSE)

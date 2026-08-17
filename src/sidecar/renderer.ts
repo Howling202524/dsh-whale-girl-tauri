@@ -154,13 +154,10 @@ function render(): void {
     play('focus-intro')
     return
   }
-  const available = bootstrap.manifest.animations[preferred] === undefined
-    ? preferred === 'focus' ? 'running' : preferred === 'cheer' ? 'jumping' : preferred === 'curtsy' ? 'waving' : 'idle'
-    : preferred
-  if (available !== 'idle') {
+  if (preferred !== 'idle') {
     idleSince = now
     nextIdleActionAt = now + 35_000
-    play(available)
+    play(preferred)
     return
   }
   if (now >= nextIdleActionAt && bootstrap.manifest.animations.sleepy !== undefined) {

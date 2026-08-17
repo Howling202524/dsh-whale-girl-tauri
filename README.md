@@ -96,6 +96,10 @@ pnpm audit:pet
 
 Harness 插件只在 `127.0.0.1` 的随机端口开放进程通道，并为每次启动生成随机 Bearer token。renderer 只获得明确注册的 Tauri commands；外部导航由 Rust 侧调用系统浏览器处理。
 
+## 项目来源
+
+本项目由 Howling202524 独立维护。它以 MIT 许可的 `dsh-whale-girl` 为初始框架，随后重构为 Tauri 2/WebView2 架构，并重新实现桌面宿主、窗口交互、偏好持久化、资源装载、构建和发布流程。沿用部分继续遵守原项目的 MIT 许可，Tauri 版本的后续实现与修改版权归 Howling202524 所有。
+
 ## 许可证
 
 [MIT](LICENSE)
